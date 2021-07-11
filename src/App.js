@@ -26,14 +26,16 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              <LogoutButton />
-              <LoginButton />
+              {/* <LogoutButton />
+              <LoginButton /> */}
+              
               <>
                 {isAuthenticated &&
                   <>
                     <BestBooks />
                   </>
                 }
+
               </>
 
 

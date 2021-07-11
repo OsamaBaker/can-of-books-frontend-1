@@ -10,9 +10,9 @@ function Profile() {
             {isAuthenticated &&
                 <>
                     {/* <LogoutButton /> */}
-                    <div> the email{user.email} </div>
+                    <div> Your email :{user.email} </div>
                     <div>Hello {user.name}</div>
-                    <div>this is the profile picture
+                    <div>this is your profile picture 
                         <img src={user.picture} alt="d" />
                     </div>
 
