@@ -1,6 +1,6 @@
 # Can Of Books
 
-**Author**: LAith Hayajneh
+**Author**: LAith Hayajneh, Osama Baker
 **Version**: 1.0.0 
 
 ## Overview
