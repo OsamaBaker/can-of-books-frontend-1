@@ -12,7 +12,7 @@ function LogoutButton() {
     <>
         {/* <BestBooks /> */}
 
-    <Button  variant="primary" onClick={() => {
+    <Button variant="primary" onClick={() => {
       logout({ returnTo: window.location.origin });
     }}>Log out</Button>
   </>
