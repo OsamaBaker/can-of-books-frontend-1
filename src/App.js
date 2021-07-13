@@ -7,13 +7,51 @@ import {
   Route
 } from "react-router-dom";
 // import { useAuth0 } from '@auth0/auth0-react';
-import LogoutButton from './components/LogoutButton';
+// import LogoutButton from './components/LogoutButton';
 import BestBooks from "./BestBooks"
-import LoginButton from './components/LoginButton';
+// import LoginButton from './components/LoginButton';
 import Profile from "./components/Profile";
 import { withAuth0 } from '@auth0/auth0-react';
-class App extends React.Component {
+import Button from 'react-bootstrap/Button'
+import AddBook from './components/AddBook';
+// import { useAuth0 } from '@auth0/auth0-react';
+import AddBookForm from './components/AddBookForm'
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      ownerEmail: '',
+      
+      ownerName:''
+
+    }
+  }
+
+  addBook = (event) => {
+
+    let email = this.props.auth0.user.email
+    console.log("addbook", email);
+    let bookName = event.target.bookName.value;
+    let bookDesc = event.target.bookDesc.value;
+    let bookStatus = event.target.bookStatus.value;
+    console.log(bookName)
+  }
+
+  showmodal = () => {
+    this.setState({
+      showModal: true
+    })
+
+  }
+
+  handleClose = () => {
+
+    this.setState({
+      showModal: false
+    })
+  }
 
   render() {
     console.log('app', this.props);
@@ -28,11 +66,17 @@ class App extends React.Component {
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
               {/* <LogoutButton />
               <LoginButton /> */}
-              
+
               <>
                 {isAuthenticated &&
                   <>
+
+                    <Button onClick={this.showmodal}  >Add Book</Button>
+                    
                     <BestBooks />
+
+                    <AddBook  show={this.state.showModal} close={this.handleClose} />
+                    <AddBookForm sendData={this.addBook} />
                   </>
                 }
 
@@ -58,4 +102,4 @@ class App extends React.Component {
   }
 }
 
-export default withAuth0 (App);
+export default withAuth0(App);
