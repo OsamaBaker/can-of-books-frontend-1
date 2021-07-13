@@ -76,7 +76,7 @@ class App extends React.Component {
                     <BestBooks />
 
                     <AddBook  show={this.state.showModal} close={this.handleClose} />
-                    <AddBookForm sendData={this.addBook} />
+                    {/* <AddBookForm sendData={this.addBook} /> */}
                   </>
                 }
 
