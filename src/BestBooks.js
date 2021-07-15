@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card'
+import { Button } from 'react-bootstrap';
 
 class MyFavoriteBooks extends React.Component {
 
@@ -49,13 +50,15 @@ console.log(responseData)
         <p>
           This is a collection of my favorite books
         </p>
+        <Button>Add Book</Button>
         {this.state.responseData.map(book => {
           return(
             <>
-            <Card>
+            <Card style={{ width: '18rem' }}>
             <p>{book.name}</p>
             <p>{book.description}</p>
             <p>{book.status}</p>
+            <Button>Delete</Button>
             </Card>
             </>
           )
